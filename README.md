@@ -58,7 +58,10 @@ controller: function OrderListController($scope, $rootScope, utils) {
             return orderToModal;
         };
 ```
-showModal(): Called by when you click the button to show and render the modal
+showModal(): Called by when you click the button to show and render the modal. The modalOption is used to formulate the URL that $http.post() method called to. the Whole value of the Modal form will be send to Web API as an object.
+
+Route:  domain/controller/action/idValue
+
 ```
         $scope.showModal = function () {
             var modalOption = {
@@ -66,7 +69,7 @@ showModal(): Called by when you click the button to show and render the modal
                 controller: 'account', //Contorll name 
                 action: 'getPassword', //Action Name (Post)
                 idVariable: 'UserId', // ID of a table
-		idvalue:'' //nuallable, Route domain/controller/action/idValue
+		idvalue:'' //nuallable
             };
 
             $scope.$broadcast('showModelEvent', [$scope.toModalObject(), modalOption]);
