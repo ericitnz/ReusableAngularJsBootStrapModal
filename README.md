@@ -88,7 +88,20 @@ Do something here when click the save button on the modal, when save success or 
 add showModal() to ng-click 
 
 —————————————————————————Advance—————————————————————————————————————————————
-1. add dropdown input
+1. Render select 
+ ```
+ { title: 'Order Status', variableName: 'OrderStatus', value: (order ? order.OrderStatus : 0), type: 'select', selectEnum: $scope.orderStatus }
+ ```
+ ```
+  $scope.orderStatus = [
+              { value: 0, text: 'Deposit paid' },
+              { value: 1, text: 'Paid' },
+              { value: 2, text: 'Canceled' },
+              { value: 3, text: 'Refunded' },
+              { value: 4, text: 'Expire' }
+          ];
+ ```
+
 
 
 
