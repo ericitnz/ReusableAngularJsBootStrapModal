@@ -12,6 +12,9 @@ Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/index.html
 Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/wscrm.module.js
 
 # How to use it?
-1. Add <c-modal></c-modal> at the template you need to use it
+1. Code in template:
+```
+<c-modal></c-modal> 
+```
 Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/orders/order.html
 2. Add Run to your con
