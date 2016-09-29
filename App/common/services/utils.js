@@ -19,12 +19,12 @@
 
         utilsFactory.postApiData = function (uri, data) {
 
-            return $http.post(uri, data).then(
+           return $http.post(uri, data).then(
                 function success(response) {
-                    return true;
+                    return [response, true];
             },
                 function error(response) {
-                    return false;
+                    return [response, false];
             });
         };
 
