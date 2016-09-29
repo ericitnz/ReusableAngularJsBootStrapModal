@@ -34,13 +34,13 @@ Add dependency on utils.
 controller: function OrderListController($scope, $rootScope, utils) {
 ```
 
-###### toModalObject(): prepare modal form data
-###### title: title for input
-###### variableName: dababase filed name  
-###### type: input type 
-###### value: setting the initial value if you edit a entity by modal
-###### validation: minLen:2,maxLen:20,required: true
-###### regulation expression vaidation, regExpVaid: { text: 'Email format is not correct', reg: /^\s*\w*\s*$/ }, see the example
+ toModalObject(): prepare modal form data
+ title: title for input
+ variableName: dababase filed name  
+ type: input type 
+ value: setting the initial value if you edit a entity by modal
+ validation: minLen:2,maxLen:20,required: true
+ regulation expression vaidation, regExpVaid: { text: 'Email format is not correct', reg: /^\s*\w*\s*$/ }, see the example
 
 ```
  $scope.toModalObject = function (table) {
