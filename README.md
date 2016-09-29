@@ -12,13 +12,13 @@ Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/index.html
 Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/wscrm.module.js
 
 # How to use it?
-1. Code in template:
+#### 1. Code in template:
 ```
 <c-modal></c-modal> 
 ```
 Make sure the code is under the controll of the view's conresponding controller
 
-2. Code in conresponding controller
+#### 2. Code in conresponding controller
 
 Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/orders/order.html
 
