@@ -16,5 +16,19 @@ Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/wscrm.module.js
 ```
 <c-modal></c-modal> 
 ```
+2. Code in controller
+
 Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/orders/order.html
-2. Add Run to your con
+
+Following code is required by xeditable
+```
+ .run(function(editableOptions) {
+      editableOptions.theme = 'bs3'; // xeditable
+})
+```
+
+Add dependency on utils.
+```
+controller: function OrderListController($scope, $rootScope, utils) {
+```
+
