@@ -87,8 +87,10 @@ Do something here when click the save button on the modal, when save success or 
 ####Don't forget this:
 add showModal() to ng-click 
 
-—————————————————————————Advance—————————————————————————————————————————————
-1. Render select 
+—————————————————————————Advance————————————————————————————
+
+###Render select 
+
  ```
  { title: 'Order Status', variableName: 'OrderStatus', value: (order ? order.OrderStatus : 0), type: 'select', selectEnum: $scope.orderStatus }
  ```
