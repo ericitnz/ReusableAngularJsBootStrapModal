@@ -69,7 +69,13 @@ Route:  domain/controller/action/idValue
                 controller: 'account', //Contorll name 
                 action: 'getPassword', //Action Name (Post)
                 idVariable: 'UserId', // ID of a table
-		idvalue:'' //nuallable
+		idvalue:'', //nuallable
+		idValue: '12', // the id of the entity, when create new, keep empty
+                httpPostConfig: {
+                      headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                      }
+                  }
             };
 
             $scope.$broadcast('showModelEvent', [$scope.toModalObject(), modalOption]);
