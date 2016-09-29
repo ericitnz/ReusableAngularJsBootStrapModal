@@ -29,9 +29,18 @@ Following code is required by xeditable
 })
 ```
 
-How to use:
+Add dependency on utils.
+```
+controller: function OrderListController($scope, $rootScope, utils) {
+```
 
-Please look into the expample I put on page: https://localhost:44300/Account/ForgetPassword
+toModalObject(): prepare modal form data
+title: title for input
+variableName: dababase filed name  
+type: input type 
+value: setting the initial value if you edit a entity by modal
+validation: minLen:2,maxLen:20,required: true
+regulation expression vaidation, regExpVaid: { text: 'Email format is not correct', reg: /^\s*\w*\s*$/ }, see the example
 
 ```
  $scope.toModalObject = function (table) {
@@ -48,7 +57,9 @@ Please look into the expample I put on page: https://localhost:44300/Account/For
 
             return orderToModal;
         };
-```          
+```
+showModal(): Called by when you click the button to show and render the modal
+```
         $scope.showModal = function () {
             var modalOption = {
                 modalTitle: 'Get passowrd',  // Modal tilte
@@ -61,8 +72,9 @@ Please look into the expample I put on page: https://localhost:44300/Account/For
             $scope.$broadcast('showModelEvent', [$scope.toModalObject(), modalOption]);
         };
 
-	
-	//Do something here when click the save button on the modal, when save success or failed
+```
+Do something here when click the save button on the modal, when save success or failed
+```
         $scope.$on('modelDone', function (event, data) {
               if (data) {
                   console.log('Success');
@@ -71,33 +83,16 @@ Please look into the expample I put on page: https://localhost:44300/Account/For
               }
           });
 
+```
+####Don't forget this:
+add showModal() to ng-click 
 
-
-3. add showModal() to ng-click 
-
-—————————————————————————advance—————————————————————————————————————————————
+—————————————————————————Advance—————————————————————————————————————————————
 1. add dropdown input
- $scope.showModal = function () {
-            var modalOption = {
-                modalTitle: 'Forget your password?',
-                controller: 'account',
-                action: 'getPassword',
-                idVariable: 'UserId',
-                idValue: '12'
-            };
-
-            $scope.$broadcast('showModelEvent', [$scope.toModalObject(), modalOption]);
-};
-
-add the following object to orderToModal : { title: 'Marketing Way', variableName: 'MarketingWay', value: (order ? order.MarketingWay : 0), type: 'select', selectEnum: $scope.marketingWay },
 
 
 
 
  
 
-Add dependency on utils.
-```
-controller: function OrderListController($scope, $rootScope, utils) {
-```
 
