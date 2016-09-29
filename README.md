@@ -16,7 +16,9 @@ Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/wscrm.module.js
 ```
 <c-modal></c-modal> 
 ```
-2. Code in controller
+Make sure the code is under the controll of the view's conresponding controller
+
+2. Code in conresponding controller
 
 Example: https://github.com/cxywind/WsCRM/blob/master/WsCRM/App/orders/order.html
 
@@ -26,6 +28,73 @@ Following code is required by xeditable
       editableOptions.theme = 'bs3'; // xeditable
 })
 ```
+
+How to use:
+
+Please look into the expample I put on page: https://localhost:44300/Account/ForgetPassword
+
+```
+ $scope.toModalObject = function (table) {
+            var orderToModal = [
+                    { title: 'Domain', variableName: 'Domain', value: (order ? order.Domain : ''), type: 'text', validation: { minLen: 2, maxlen:20 errorText: '* required' } },
+                    { title: 'Email', variableName: 'Email', value: (order ? order.Email : ''), type: 'email', validation: { required: true, errorText: '* please input your email' }, regExpVaid: { text: 'Email?????', reg: /^\s*\w*\s*$/ } },
+                    { title: 'Phone', variableName: 'Phone', value: (order ? order.Phone : ''), type: 'tel' },
+                    { title: 'Order Status', variableName: 'OrderStatus', value: (order ? order.OrderStatus : 0), type: 'select', selectEnum: $scope.orderStatus },
+                    { title: 'Order Date', variableName: 'OrderDate', value: (order ? order.OrderDate : new Date()), type: 'date' },
+                    { title: 'Marketing Way', variableName: 'MarketingWay', value: (order ? order.MarketingWay : 0), type: 'select', selectEnum: $scope.marketingWay },
+                    { title: 'Product Name', variableName: 'ProductName', value: (order ? order.ProductName : ''), type: 'text' },
+                    { title: 'Description', variableName: 'Description', value: (order ? order.Description : ''), type: 'textarea' }
+            ];
+
+            return orderToModal;
+        };
+```          
+        $scope.showModal = function () {
+            var modalOption = {
+                modalTitle: 'Get passowrd',  // Modal tilte
+                controller: 'account', //Contorll name 
+                action: 'getPassword', //Action Name (Post)
+                idVariable: 'UserId', // ID of a table
+		idvalue:'' //nuallable, Route domain/controller/action/idValue
+            };
+
+            $scope.$broadcast('showModelEvent', [$scope.toModalObject(), modalOption]);
+        };
+
+	
+	//Do something here when click the save button on the modal, when save success or failed
+        $scope.$on('modelDone', function (event, data) {
+              if (data) {
+                  console.log('Success');
+              } else {
+                  console.log('error');
+              }
+          });
+
+
+
+3. add showModal() to ng-click 
+
+—————————————————————————advance—————————————————————————————————————————————
+1. add dropdown input
+ $scope.showModal = function () {
+            var modalOption = {
+                modalTitle: 'Forget your password?',
+                controller: 'account',
+                action: 'getPassword',
+                idVariable: 'UserId',
+                idValue: '12'
+            };
+
+            $scope.$broadcast('showModelEvent', [$scope.toModalObject(), modalOption]);
+};
+
+add the following object to orderToModal : { title: 'Marketing Way', variableName: 'MarketingWay', value: (order ? order.MarketingWay : 0), type: 'select', selectEnum: $scope.marketingWay },
+
+
+
+
+ 
 
 Add dependency on utils.
 ```
