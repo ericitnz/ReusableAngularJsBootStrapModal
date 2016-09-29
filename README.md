@@ -76,10 +76,11 @@ Route:  domain/controller/action/idValue
         };
 
 ```
-Do something here when click the save button on the modal, when the save action success or failed
+Do something here when click the save button on the modal, when the save action success or failed. 
 ```
-        $scope.$on('modelDone', function (event, data) {
-              if (data) {
+       $scope.$on('modelDone', function (event, data) {
+              if (data[1]) {
+                  console.log(data[0]);  // data[0] populate the response from server
                   console.log('Success');
               } else {
                   console.log('error');
