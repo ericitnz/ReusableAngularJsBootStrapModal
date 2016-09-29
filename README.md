@@ -1,5 +1,5 @@
 # Reusable AngularJs BootStrap Modal
-**Project Description: ** An AngualarJs Modal component based on Bottstrap Modal that is resuable              
+**Project Description:** An AngualarJs Modal component based on Bottstrap Modal that is resuable              
 **Author:** Eric Chen                            
 **Blog:** http://www.hitechchimp.com
 # Installation
