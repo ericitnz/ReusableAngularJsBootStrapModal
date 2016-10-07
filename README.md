@@ -45,7 +45,7 @@ controller: function OrderListController($scope, $rootScope, utils) {
 ```
  $scope.toModalObject = function (table) {
             var orderToModal = [
-                    { title: 'Domain', variableName: 'Domain', value: (order ? order.Domain : ''), type: 'text', validation: { minLen: 2, maxlen:20 errorText: '* required' } },
+                    { title: 'Domain', hide: true, variableName: 'Domain', value: (order ? order.Domain : ''), type: 'text', validation: { minLen: 2, maxlen:20 errorText: '* required' } },
                     { title: 'Email', variableName: 'Email', value: (order ? order.Email : ''), type: 'email', validation: { required: true, errorText: '* please input your email' }, regExpVaid: { text: 'Email?????', reg: /^\s*\w*\s*$/ } },
                     { title: 'Phone', variableName: 'Phone', value: (order ? order.Phone : ''), type: 'tel' },
                     { title: 'Order Status', variableName: 'OrderStatus', value: (order ? order.OrderStatus : 0), type: 'select', selectEnum: $scope.orderStatus },
@@ -69,8 +69,7 @@ Route:  domain/controller/action/idValue
                 controller: 'account', //Contorll name 
                 action: 'getPassword', //Action Name (Post)
                 idVariable: 'UserId', // ID of a table
-		idvalue:'', //nuallable
-		idValue: '12', // the id of the entity, when create new, keep empty
+		idValue: '12', // nuallable， the id of the entity, when create new, keep empty
                 httpPostConfig: {
                       headers: {
                           'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
