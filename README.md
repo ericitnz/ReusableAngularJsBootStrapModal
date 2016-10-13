@@ -99,7 +99,7 @@ add showModal() to ng-click
 
 ———————————————————————Advance————————————————————————
 
-####1. Render select 
+#### 1. Render select 
 
  ```
  { title: 'Order Status', variableName: 'OrderStatus', value: (order ? order.OrderStatus : 0), type: 'select', selectEnum: $scope.orderStatus }
@@ -114,6 +114,9 @@ add showModal() to ng-click
           ];
  ```
 
+#### 2. Using the modal without post data to back-end
+
+First, remove controller and action in the modalOption objcect
 
 
 
