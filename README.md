@@ -76,13 +76,26 @@ Route:  domain/controller/action/idValue
                           'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                       }
                   }
+$scope.showModal = function () {
+            var modalOption = {
+                modalTitle: 'Get passowrd',  // Modal tilte
+                controller: 'account', //Contorll name 
+                action: 'getPassword', //Action Name (Post)
+                idVariable: 'UserId', // ID of a table
+        idValue: '12', // nuallable， the id of the entity, when create new, keep empty
+                httpPostConfig: {
+                      headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                      }
+                  }
+            };
             };
 
             $scope.$broadcast('showModelEvent', [$scope.toModalObject(), modalOption]);
         };
 
 ```
-Do something here when click the save button on the modal, when the save action success or failed. 
+`Do something here when click the save button on the modal, when the save action success or failed. 
 ```
        $scope.$on('modelDone', function (event, data) {
               if (data[1]) {
@@ -92,7 +105,7 @@ Do something here when click the save button on the modal, when the save action 
                   console.log('error');
               }
           });
-
+`
 ```
 ####Don't forget this:
 add showModal() to ng-click 
@@ -116,11 +129,17 @@ add showModal() to ng-click
 
 #### 2. Using the modal without post data to back-end
 
-First, remove controller and action in the modalOption objcect
+First, remove controller, action and httpPostConfig in the modalOption objcect
 
+```
+$scope.showModal = function () {
+            var modalOption = {
+                modalTitle: 'Get passowrd',  // Modal tilte
+                idVariable: 'UserId', // ID of a table
+                idValue: '12', // nuallable， the id of the entity, when create new, keep empty
+            };
 
-
-
+```
  
 
 
