@@ -141,5 +141,11 @@ $scope.showModal = function () {
 
 ```
  
+Then, using the data here
+```
+$scope.$on('modelDone', function (event, data) {
+         console.log(data);    
+          });
+```
 
 
